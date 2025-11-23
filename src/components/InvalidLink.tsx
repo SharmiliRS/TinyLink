@@ -1,6 +1,6 @@
 export function InvalidLink() {
   return (
-    <div className="min-h-screen bg-[#FDE8E8] flex items-center justify-center">
+    <div className="pt-12 flex items-center justify-center">
       <div className="text-center max-w-md mx-4">
         <div className="text-6xl mb-4">🚫</div>
         <h1 className="text-3xl font-bold text-[#450606] mb-4">
@@ -19,12 +19,7 @@ export function InvalidLink() {
           >
             🏠 Go to Homepage
           </a>
-          <a 
-            href="/" 
-            className="block border border-[#450606] text-[#450606] px-6 py-3 rounded-lg hover:bg-[#450606] hover:text-white transition-colors font-semibold"
-          >
-            ✨ Create New Link
-          </a>
+         
         </div>
       </div>
     </div>

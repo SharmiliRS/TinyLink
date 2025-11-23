@@ -1,4 +1,4 @@
-import { InvalidLink } from '@/components/InvalidLink'
+import  {InvalidLink } from '@/components/InvalidLink'
 
 export default function InvalidLinkPage() {
   return <InvalidLink />

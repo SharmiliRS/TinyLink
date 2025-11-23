@@ -1,3 +1,4 @@
+// Updated route with specific deleted link handling
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/../lib/db'
 
@@ -8,25 +9,29 @@ export async function GET(
   try {
     const { code } = await params
 
-    // Find the link in database
+    if (!code || typeof code !== 'string') {
+      return NextResponse.redirect(new URL('/invalid-link', request.url))
+    }
+
     const link = await prisma.link.findUnique({
       where: { shortCode: code },
     })
 
     if (!link) {
+      // Optional: Check if you have a way to track deleted links
+      // For now, just redirect to invalid-link
       return NextResponse.redirect(new URL('/invalid-link', request.url))
     }
 
-    // Increment click count
-    await prisma.link.update({
+    // Update clicks in background
+    prisma.link.update({
       where: { shortCode: code },
       data: {
         clicks: { increment: 1 },
         lastClicked: new Date(),
       },
-    })
+    }).catch(console.error)
 
-    // Return HTML with meta refresh to keep short URL in address bar
     const html = `
       <!DOCTYPE html>
       <html>
