@@ -12,6 +12,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Tiny Link",
   description: "Premium URL Shortener",
+  icons: {
+    icon: [
+      {
+         url: "/logo1.png", 
+        type: "image/png",
+        sizes: "16x16",
+      },
+    ],
+    apple: [
+      {
+        url: "/logo1.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/logo1.png",
+  },
 };
 
 export default function RootLayout({
