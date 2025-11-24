@@ -102,7 +102,7 @@ export default function StatsPage() {
                   key={i}
                   className="bg-white rounded-xl p-4 space-y-3 border-2 border-[#450606]/10"
                 >
-                  <div className="h-4 bg-[#450606]/10 rounded-lg w-20"></div>
+                  <div className="h-4 bg-[#450606]/10 rounded-lg w-20" ></div>
                   <div className="h-6 bg-[#450606]/10 rounded-lg w-12"></div>
                 </div>
               ))}
